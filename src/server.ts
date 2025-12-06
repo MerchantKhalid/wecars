@@ -2,12 +2,15 @@ import express, { Request, Response } from 'express';
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
 import path from 'path';
+import authRoutes from './routes/auth.routes';
 
 dotenv.config({ path: path.join(process.cwd(), '.env') });
 const app = express();
 const port = 5000;
 
-const pool = new Pool({
+app.use(express.json());
+
+export const pool = new Pool({
   connectionString: `${process.env.CONNECTION_STR}`,
 });
 
@@ -49,10 +52,8 @@ const initDB = async () => {
 
 initDB();
 
-app.use(express.json());
-
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello Khalid');
+  res.send('Hello Mr');
 });
 
 app.post('/', (req: Request, res: Response) => {
@@ -62,6 +63,12 @@ app.post('/', (req: Request, res: Response) => {
     .status(201)
     .json({ success: true, message: 'Data received successfully' });
 });
+
+//----------------------------
+
+app.use('/api/v1/auth', authRoutes);
+
+//-------------------------
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
