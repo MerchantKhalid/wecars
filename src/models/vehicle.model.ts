@@ -1,4 +1,4 @@
-import { pool } from '../server';
+import { pool } from '../database/db';
 
 export interface Vehicle {
   id?: number;

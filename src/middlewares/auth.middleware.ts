@@ -27,7 +27,7 @@ export const authenticate = (
       token,
       process.env.JWT_SECRET as string
     ) as JwtPayload;
-    req.user = payload; // attach user info to request
+    req.user = payload;
     next();
   } catch {
     return res.status(403).json({ success: false, message: 'Invalid token' });
