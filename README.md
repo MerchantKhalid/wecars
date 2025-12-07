@@ -7,6 +7,12 @@ Built fully using **Node.js**, **Express**, **TypeScript**, **PostgreSQL**, **JW
 
 ---
 
+## Live Site
+
+Check out the live application here: [WeCars Live](https://wecars-luhwoen7a-merchantkhalids-projects.vercel.app/)
+
+---
+
 ## 🔥 Features
 
 ### 🔐 **Authentication & Authorization**
